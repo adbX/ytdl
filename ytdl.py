@@ -17,6 +17,7 @@ ydl_opts = {
     'nooverwrites':True,
     'download_archive':'downloaded.txt',
     'outtmpl':'%(playlist_index)s-%(title)s.%(ext)s',
+    'ignoreerrors':True,
     'postprocessors': [{
  	'key': 'FFmpegExtractAudio',
     'preferredcodec': 'best',
