@@ -5,7 +5,11 @@ import youtube_dl
 results=[]
 folders=[]
 
-with open('links.txt') as inputfile:
+#note: '~' doesn't work, you'll need to use /home/.....
+downloadpath="/home/adb/stuff/gdrive/ytdl/"
+linkspath="/home/adb/stuff/projects/ytdl_links/links.txt"
+
+with open(linkspath) as inputfile:
 	for line in inputfile:
 		head,sep,tail=line.partition('#')
 		folders.append(tail.strip())
@@ -26,6 +30,7 @@ ydl_opts = {
 }
 
 j=0
+os.chdir(downloadpath)
 with youtube_dl.YoutubeDL(ydl_opts) as ydl:
 	for folder in folders:
 
